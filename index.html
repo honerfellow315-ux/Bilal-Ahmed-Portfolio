@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Ahmed Student Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a0a0f, #0d1117, #111827);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(90deg, #d4af37, #f5e6a3, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-family: 'Georgia', serif;
+            transition: color 0.3s;
+            letter-spacing: 0.03em;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            padding: 6rem 5% 4rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #d4af37;
+            padding: 0.4rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            animation: fadeDown 0.8s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease 0.2s both;
+            color: #ffffff;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #d4af37, #f5e6a3, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.9;
+            font-family: 'Georgia', serif;
+            animation: fadeUp 0.8s ease 0.4s both;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #f5e6a3);
+            color: #0a0a0f;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.55);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.07);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-3px);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #d4af37, #b8960c);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.25);
+            border: 1px solid rgba(212,175,55,0.4);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+        }
+
+        /* ===== CARDS SECTION ===== */
+        .cards-section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            font-family: 'Georgia', serif;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(212,175,55,0.04);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .card-link .card {
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: rgba(212,175,55,0.09);
+            border-color: rgba(212,175,55,0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Georgia', serif;
+            margin-bottom: 0.5rem;
+            color: #f5e6a3;
+        }
+
+        .card p {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.88rem;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+        }
+
+        /* ===== ALERT BOX ===== */
+        .alert {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 12px;
+            padding: 1.2rem 1.8rem;
+            margin: 0 5% 3rem;
+            color: #d4af37;
+            font-size: 0.95rem;
+            font-family: 'Georgia', serif;
+        }
+
+        /* ===== AI CHATBOT ===== */
+        #chatbot-section {
+            padding: 4rem 5%;
+            background: rgba(0,0,0,0.25);
+        }
+
+        .chat-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(245,230,163,0.1));
+            padding: 1.2rem 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(212,175,55,0.15);
+        }
+
+        .chat-avatar {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #d4af37, #f5e6a3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .chat-header-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Georgia', serif;
+            color: #f5e6a3;
+        }
+
+        .chat-status {
+            font-size: 0.75rem;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .chat-status::before {
+            content: '';
+            width: 7px; height: 7px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        .chat-messages {
+            height: 360px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(212,175,55,0.4) transparent;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 0.85rem 1.2rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            animation: msgIn 0.3s ease;
+        }
+
+        .msg.bot {
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+
+        .msg.user {
+            background: linear-gradient(135deg, #d4af37, #b8960c);
+            color: #0a0a0f;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .msg-time {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.3rem;
+        }
+
+        .msg.user .msg-time {
+            color: rgba(0,0,0,0.4);
+        }
+
+        .typing {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.85rem 1.2rem;
+            background: rgba(212,175,55,0.1);
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            width: fit-content;
+        }
+
+        .typing span {
+            width: 7px; height: 7px;
+            background: #d4af37;
+            border-radius: 50%;
+            animation: bounce 1.2s infinite;
+        }
+
+        .typing span:nth-child(2) { animation-delay: 0.2s; }
+        .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        .quick-replies {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            padding: 0 1.5rem 1rem;
+        }
+
+        .quick-btn {
+            padding: 0.4rem 0.9rem;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 50px;
+            color: #d4af37;
+            font-size: 0.78rem;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            transition: all 0.2s;
+        }
+
+        .quick-btn:hover {
+            background: rgba(212,175,55,0.2);
+        }
+
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(212,175,55,0.1);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 50px;
+            padding: 0.7rem 1.2rem;
+            color: #fff;
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: #d4af37;
+        }
+
+        .chat-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .send-btn {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #d4af37, #f5e6a3);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #0a0a0f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.5);
+        }
+
+        .assistant-float {
+            position: fixed;
+            right: 20px;
+            bottom: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #d4af37, #f5e6a3);
+            color: #0a0a0f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 16px 35px rgba(0,0,0,0.35);
+            z-index: 1001;
+            text-decoration: none;
+            font-size: 1.7rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .assistant-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            h1 { font-size: 2.2rem; }
+            .chat-messages { height: 280px; }
+            .assistant-float {
+                right: 16px;
+                bottom: 16px;
+                width: 52px;
+                height: 52px;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.88rem;
+            font-family: 'Georgia', serif;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30%            { transform: translateY(-6px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.4; }
+        }
+
+        @keyframes msgIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            h1 { font-size: 2.2rem; }
+            .chat-messages { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+        <div class="logo">BA ✦</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#chatbot-section">AI Assistant</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-badge">✦ Bilal Ahmed — AI Student</div>
+
+        <!-- H1 TAG -->
+        <h1>Hi, I'm <span>Bilal Ahmed</span></h1>
+
+        <!-- P TAG -->
+        <p>
+            I am a first-semester BS Artificial Intelligence student at <strong>BBSUL, Karachi</strong>. 
+            I am learning C++, Python, and core computing concepts while exploring AI and Machine Learning.
+            I believe in learning by doing, staying curious, and improving step by step to build a strong foundation in AI.
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="btn-group">
+            <a href="#chatbot-section" class="btn btn-primary">💬 Chat with Assistant</a>
+            <a href="#about" class="btn btn-secondary">📖 About Me</a>
+            <a href="https://www.canva.com/design/DAHFQDjg7LY/AE2a6RHSc7faxFhhJGiFUg/view?utm_content=DAHFQDjg7LY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h608cc304ad" class="btn btn-green" target="_blank" rel="noopener">📄 Resume</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="cards-section" id="about">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-sub reveal">Professional summary of my skills, learning, and project achievements.</p>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>AI & Web Development</h3>
+                <p>Building intelligent web experiences with modern HTML, CSS, JavaScript, and AI concepts.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Professional Focus</h3>
+                <p>Delivering work with clear goals, attention to detail, and a user-centered approach.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Learning Growth</h3>
+                <p>Continuously improving through projects, research, and hands-on development challenges.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Modern Design</h3>
+                <p>Creating responsive interfaces that look great on mobile and desktop devices.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Problem Solving</h3>
+                <p>Fixing issues quickly and improving results through testing, debugging, and iteration.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Continuous Growth</h3>
+                <p>Growing skills with new tools, technologies, and project-based learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="cards-section" id="skills">
+        <h2 class="section-title reveal">Skills</h2>
+        <p class="section-sub reveal">A full list of my skills across web, design, communication, and AI.</p>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Negotiation</h3>
+                <p>Working with teams and stakeholders to reach agreements and solve problems together.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Problem Solving</h3>
+                <p>Analyzing challenges, testing solutions, and improving results through logic and persistence.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h3>Customer Service</h3>
+                <p>Listening carefully and responding clearly to support users and create positive experiences.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Artificial Intelligence (AI)</h3>
+                <p>Understanding AI concepts and exploring applications in data, automation, and smart systems.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔎</div>
+                <h3>Research Skills</h3>
+                <p>Gathering information, learning new topics, and applying findings to real projects.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗣️</div>
+                <h3>Communication</h3>
+                <p>Sharing ideas clearly in writing and verbally to collaborate effectively with others.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Canva</h3>
+                <p>Designing visuals, presentations, and graphics with easy-to-use creative tools.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Building web page structure using semantic tags and accessible content layout.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎛️</div>
+                <h3>CSS</h3>
+                <p>Styling web pages with layout, color, and typography for modern design.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">JS</div>
+                <h3>JavaScript</h3>
+                <p>Learning JavaScript is fun! Adding interactivity, dynamic behavior, and responsive features to websites.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐍</div>
+                <h3>Python</h3>
+                <p>Programming with Python for automation, logic, and data-focused tasks.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>C++</h3>
+                <p>Writing efficient code and understanding programming fundamentals in C++.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Microsoft Office</h3>
+                <p>Using Word, Excel, and PowerPoint to create documents, reports, and presentations.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🕸️</div>
+                <h3>WordPress</h3>
+                <p>Building websites and managing content using the WordPress platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section class="cards-section" id="portfolio">
+        <h2 class="section-title reveal">Portfolio</h2>
+        <p class="section-sub reveal">Selected work demonstrating web development, AI, and design projects.</p>
+
+        <div class="cards-grid reveal">
+            <a href="#chatbot-section" class="card-link">
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>AI Assistant Chat</h3>
+                    <p>Interactive AI chatbot built with JavaScript to answer questions and showcase assistant capability.</p>
+                </div>
+            </a>
+            <a href="#home" class="card-link">
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Responsive Portfolio</h3>
+                    <p>Professional portfolio website designed for modern presentation and mobile-first viewing.</p>
+                </div>
+            </a>
+            <a href="#home" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🕸️</div>
+                    <h3>WordPress Website</h3>
+                    <p>Website setup and content management using WordPress themes and plugins.</p>
+                </div>
+            </a>
+            <a href="https://1drv.ms/p/c/9522524185e055ee/IQBIaofvYwXAQaxAkC4yEMOOARSksQZd0MKpNTlcGA1zXZw" class="card-link" target="_blank" rel="noopener">
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Office Productivity</h3>
+                    <p>Creating reports, spreadsheets, and presentations using Microsoft Office tools.</p>
+                </div>
+            </a>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Visual Design</h3>
+                <p>Designing graphics, social media visuals, and presentations with Canva.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>AI Research</h3>
+                <p>Exploring AI concepts, machine learning ideas, and intelligent system design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="cards-section" id="contact">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-sub reveal">Reach out by email and follow my AI journey across these platforms.</p>
+
+        <div class="cards-grid reveal">
+            <a href="mailto:b.bilal.a.ahmed.ai@gmail.com" class="card-link">
+                <div class="card">
+                    <div class="card-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>b.bilal.a.ahmed.ai@gmail.com</p>
+                </div>
+            </a>
+            <a href="https://linkedin.com/in/bilal-ahmed-ai" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect on LinkedIn for professional updates and AI networking.</p>
+                </div>
+            </a>
+            <a href="https://www.kaggle.com/bilalahmedai" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Kaggle</h3>
+                    <p>Explore my data science notebooks, competitions, and AI work.</p>
+                </div>
+            </a>
+            <a href="https://huggingface.co/bilalahmedai" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🤗</div>
+                    <h3>Hugging Face</h3>
+                    <p>See my machine learning models, demos, and AI projects.</p>
+                </div>
+            </a>
+            <a href="https://colab.research.google.com/drive/1feplz7h8bz4B7aj2DHdT-eIPEsAfKKV2?usp=sharing" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Google Colab</h3>
+                    <p>Open my Colab notebooks for AI experiments and coding examples.</p>
+                </div>
+            </a>
+            <a href="https://huggingface.co/bilalahmedai/activity/upvotes" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">📄</div>
+                    <h3>Papers with Code</h3>
+                    <p>Browse my Hugging Face activity and AI research contributions.</p>
+                </div>
+            </a>
+            <a href="https://linktr.ee/bilalahmed.ai" target="_blank" rel="noopener" class="card-link">
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <h3>Linktree</h3>
+                    <p>Access all my profiles, projects, and contact links in one place.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <a href="#chatbot-section" class="assistant-float" aria-label="Open AI Assistant">💡</a>
+
+    <!-- ===== AI ASSISTANT SECTION ===== -->
+    <section id="chatbot-section">
+        <h2 class="section-title reveal">💡 AI Assistant</h2>
+        <p class="section-sub reveal">Ask me anything about AI, web development, or the projects shown here!</p>
+
+        <div class="chat-container reveal">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-avatar">AI</div>
+                <div class="chat-header-info">
+                    <h3>AI Assistant</h3>
+                    <div class="chat-status">Online — Ready to help</div>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="msg bot">
+                    👋 Hi there, I'm your AI Assistant.
+                    <div class="msg-time">Just now</div>
+                </div>
+            </div>
+
+            <!-- Quick Reply Buttons -->
+            <div class="quick-replies">
+                <button class="quick-btn" onclick="quickSend('What is AI?')">What is AI?</button>
+                <button class="quick-btn" onclick="quickSend('What is Problem Solving?')">Problem Solving?</button>
+                <button class="quick-btn" onclick="quickSend('What is Customer Service?')">Customer Service?</button>
+                <button class="quick-btn" onclick="quickSend('What is Canva?')">What is Canva?</button>
+                <button class="quick-btn" onclick="quickSend('What is WordPress?')">What is WordPress?</button>
+                <button class="quick-btn" onclick="quickSend('Hello')">Say Hello 👋</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-area">
+                <input
+                    type="text"
+                    class="chat-input"
+                    id="userInput"
+                    placeholder="Type your question here..."
+                    onkeypress="if(event.key==='Enter') sendMessage()"
+                />
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>Website by<span>👨‍💻Bilal Ahmed</span> &nbsp;|&nbsp;Copyright © 2026 All Rights Reserved.</p>
+    </footer> 
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+
+        // ---- CHATBOT KNOWLEDGE BASE ----
+        const botReplies = {
+            "hello":           "👋 Hi there! I'm AI Assistant. Ask me anything about AI, HTML, or web development!",
+            "hi":              "Hey! 😊 How can I help you today?",
+            "what is ai":     "💡 AI stands for Artificial Intelligence. It means machines can learn, understand, and solve problems using data and smart algorithms.",
+            "what is machine learning": "📊 Machine Learning is a part of AI that teaches computers to learn patterns from data and make decisions without being explicitly programmed.",
+            "what is neural network": "🧠 A Neural Network is a computer model inspired by the brain. It uses layers of connected nodes to learn from examples like images or text.",
+            "what is deep learning": "💡 Deep Learning is a type of machine learning that uses many neuron-like layers to solve hard problems such as voice, image, and language tasks.",
+            "what is ai assistant": "💬 An AI assistant can answer questions, help with tasks, and provide useful information using trained models and intelligent rules.",
+            "ai assistant": "💬 An AI assistant can answer questions, help with tasks, and provide useful information using trained models and intelligent rules.",
+            "what is negotiation": "🤝 Negotiation is working with people to reach a fair agreement by listening, understanding needs, and finding a good solution for everyone.",
+            "negotiation": "🤝 Negotiation is working with people to reach a fair agreement by listening, understanding needs, and finding a good solution for everyone.",
+            "what is problem solving": "🧩 Problem Solving means identifying a challenge, testing solutions, and choosing the best answer step by step.",
+            "problem solving": "🧩 Problem Solving means identifying a challenge, testing solutions, and choosing the best answer step by step.",
+            "what is customer service": "📞 Customer Service is helping people with their questions, solving problems, and making sure they have a positive experience.",
+            "customer service": "📞 Customer Service is helping people with their questions, solving problems, and making sure they have a positive experience.",
+            "what is research skills": "🔍 Research Skills are finding information, checking facts, and using knowledge to learn new things or solve problems.",
+            "research skills": "🔍 Research Skills are finding information, checking facts, and using knowledge to learn new things or solve problems.",
+            "what is communication": "🗣️ Communication is sharing ideas clearly with words and listening carefully so everyone understands each other.",
+            "communication": "🗣️ Communication is sharing ideas clearly with words and listening carefully so everyone understands each other.",
+            "what is canva": "🎨 Canva is an online design tool for creating posters, social media graphics, presentations, and visual content easily.",
+            "canva": "🎨 Canva is an online design tool for creating posters, social media graphics, presentations, and visual content easily.",
+            "what is html":    "📄 HTML stands for HyperText Markup Language. It's the standard language used to create and structure web pages using tags like <h1>, <p>, <div>, and more!",
+            "html":    "📄 HTML stands for HyperText Markup Language. It's the standard language used to create and structure web pages using tags like <h1>, <p>, <div>, and more!",
+            "what is css":     "🎨 CSS stands for Cascading Style Sheets. It's used to style HTML elements — controlling colors, fonts, layouts, animations, and the overall look of a webpage.",
+            "css":     "🎨 CSS stands for Cascading Style Sheets. It's used to style HTML elements — controlling colors, fonts, layouts, animations, and the overall look of a webpage.",
+            "what is javascript": "⚡ JavaScript is a programming language that makes web pages interactive! It handles things like button clicks, form validation, animations, and dynamic content updates.",
+            "javascript": "⚡ JavaScript is a programming language that makes web pages interactive! It handles things like button clicks, form validation, animations, and dynamic content updates.",
+            "what is python": "🐍 Python is a programming language used for automation, data analysis, and creating many types of software with simple and readable code.",
+            "python": "🐍 Python is a programming language used for automation, data analysis, and creating many types of software with simple and readable code.",
+            "what is c++":    "💻 C++ is a powerful programming language used for fast and efficient applications, games, and system-level software.",
+            "c++":    "💻 C++ is a powerful programming language used for fast and efficient applications, games, and system-level software.",
+            "what is wordPress": "🕸️ WordPress is a website platform that makes it easy to build and manage blogs or websites using customizable themes and plugins.",
+            "wordpress": "🕸️ WordPress is a website platform that makes it easy to build and manage blogs or websites using customizable themes and plugins.",
+            "what is microsoft office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "microsoft office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "what is ms office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "ms office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "what is office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "office": "📊 Microsoft Office includes Word, Excel, and PowerPoint to create documents, spreadsheets, and presentations for business and school.",
+            "how to deploy":   "🚀 To deploy your website:\n1. Create a GitHub account\n2. Upload your HTML file\n3. Go to Settings → Pages\n4. Select your branch and save\n5. Your site is live! 🎉",
+            "what is vercel":  "▲ Vercel is a free hosting platform. You connect your GitHub repo and it automatically deploys your website. Very easy to use!",
+            "default":         "🤔 I'm not sure about that! Try asking about AI, machine learning, neural networks, deep learning, negotiation, problem solving, customer service, research skills, communication, Canva, HTML, CSS, JavaScript, Python, C++, WordPress, Microsoft Office, VS Code, GitHub, deployment, or AI assistant features. Use the quick reply buttons too!"
+        };
+
+        function getTime() {
+            return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function addMessage(text, sender) {
+            const box = document.getElementById('chatMessages');
+            const msg = document.createElement('div');
+            msg.className = `msg ${sender}`;
+            msg.innerHTML = text + `<div class="msg-time">${getTime()}</div>`;
+            box.appendChild(msg);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function showTyping() {
+            const box    = document.getElementById('chatMessages');
+            const typing = document.createElement('div');
+            typing.className = 'typing';
+            typing.id        = 'typingIndicator';
+            typing.innerHTML = '<span></span><span></span><span></span>';
+            box.appendChild(typing);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function hideTyping() {
+            const t = document.getElementById('typingIndicator');
+            if (t) t.remove();
+        }
+
+        function getBotResponse(input) {
+            const key = input.toLowerCase().trim();
+            for (const phrase in botReplies) {
+                if (key.includes(phrase)) return botReplies[phrase];
+            }
+            return botReplies['default'];
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const text  = input.value.trim();
+            if (!text) return;
+            addMessage(text, 'user');
+            input.value = '';
+            showTyping();
+            setTimeout(() => {
+                hideTyping();
+                addMessage(getBotResponse(text), 'bot');
+            }, 1000 + Math.random() * 500);
+        }
+
+        function quickSend(text) {
+            document.getElementById('userInput').value = text;
+            sendMessage();
+        }
+
+        // ---- SCROLL REVEAL ----
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+    </script>
+</body>
+</html>
